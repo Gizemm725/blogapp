@@ -1,10 +1,54 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
+
+data={
+    "blogs": [
+        {
+            "id":1,
+            "title":"komple web geliştime",
+            "image":"4.webp",
+             "is_active":True,
+             "is_home":False,
+             "description":"çok iyi bir kurs"
+        },
+
+           {
+            "id":2,
+            "title":"python kursu",
+            "image":"2.webp",
+             "is_active":True,
+              "is_home":True,
+             "description":"çok iyi bir kurs"
+        },
+
+           {
+            "id":3,
+            "title":"Django kursu",
+            "image":"3.webp",
+             "is_active":False,
+              "is_home":True,
+             "description":"çok iyi bir kurs"
+        },
+    ]
+}
+
+# views.py'da context ekleyin
 def index(request):
-    return HttpResponse("Homepage of the Blog")
+    context = {
+        "blogs":data["blogs"]
+    }
+    return render(request, "blog/index.html", context)
 
 def blogs(request):
-    return HttpResponse("Welcome to the Blog!")
+    
+    return render(request,"blog/blogs.html")
+def blog_detail(request, id):
+    blogs = data["blogs"]
+    selectedBlog = None
 
-def blog_detail(request, blog_id):
-    return HttpResponse(f"Blog detail page for blog id: {blog_id}")
+    for blog in blogs:
+        if blog["id"] == id:
+            selectedBlog = blog
+    
+    return render(request, "blog/blog-details.html", {"blog": selectedBlog})
