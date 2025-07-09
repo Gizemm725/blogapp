@@ -15,10 +15,11 @@
 
 {%block content%}
  <div clas="container mt-3">
-   <div class="col"></div>
-    <h1>Login</h1>
-    <hr>
+   <div class="col">
 
+ <h1>Login</h1>
+    <hr>
+    
     <form method="POST"> 
        {% csrf_token %}
       {% if error %}
@@ -40,6 +41,7 @@
        <div class="mb-3"> </div>
       <input type ="submit" value="Login" class="btn btn-primary">
     </form>
+   </div>
    </div>
 {%endblock%}
 
