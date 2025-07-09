@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from blog.models import Blog
 
 
 data={
@@ -36,7 +37,7 @@ data={
 # views.py'da context ekleyin
 def index(request):
     context = {
-        "blogs":data["blogs"]
+        "blogs":Blog.objects.all
     }
     return render(request, "blog/index.html", context)
 
