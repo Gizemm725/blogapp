@@ -1,0 +1,54 @@
+/* Temel Düzen */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Kart Stilleri */
+.card {
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Resim Stilleri */
+.blog-thumbnail {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.blog-detail-image {
+    max-height: 500px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Başlık ve Metin */
+.card-title {
+    color: #333;
+    font-weight: 600;
+}
+
+.blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Responsive Düzen */
+@media (max-width: 768px) {
+    .blog-thumbnail {
+        height: 150px;
+    }
+    
+    .blog-detail-image {
+        max-height: 300px;
+    }
+}
